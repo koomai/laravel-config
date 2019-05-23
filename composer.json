@@ -32,7 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Koomai\\CustomConfig\\": "src"
+            "Koomai\\LaravelConfig\\": "src"
         },
         "files": [
             "./src/helpers.php"
@@ -40,7 +40,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Koomai\\CustomConfig\\Tests\\": "tests"
+            "Koomai\\LaravelConfig\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -54,7 +54,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Koomai\\CustomConfig\\LaravelServiceProvider"
+                "Koomai\\LaravelConfig\\Providers\\LaravelServiceProvider"
             ]
         }
     }
