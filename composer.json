@@ -1,0 +1,61 @@
+{
+    "name": "koomai/laravel-config",
+    "description": "Database driven configuration for Laravel applications",
+    "keywords": [
+        "php",
+        "laravel",
+        "artisan"
+    ],
+    "homepage": "https://github.com/koomai/laravel-config",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sid K",
+            "email": "sid@koomai.net",
+            "homepage": "https://koomai.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/console": ">=5.4",
+        "illuminate/database": ">=5.4",
+        "illuminate/events": ">=5.4",
+        "illuminate/config": ">=5.4",
+        "ext-json": "*",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": ">=3.4",
+        "phpunit/phpunit": "<=7.5",
+        "mockery/mockery": ">=0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Koomai\\CustomConfig\\": "src"
+        },
+        "files": [
+            "./src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Koomai\\CustomConfig\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Koomai\\CustomConfig\\LaravelServiceProvider"
+            ]
+        }
+    }
+}
