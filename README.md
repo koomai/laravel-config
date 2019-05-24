@@ -1,5 +1,7 @@
 # Laravel Config
 
+##### For Laravel 5.7+
+
 Manage your application configuration in your database.
 
 Laravel Config allows you to override or add to your application configuration in `/config` without redeploying code.
