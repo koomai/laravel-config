@@ -26,21 +26,6 @@ class AddDatabaseConfigCommand extends Command
     protected $description = 'Add a configuration key/value pair in the database';
 
     /**
-     * Allows arrays to be set as config values. But if there is only
-     * one item in the array, it returns the value as a primitive.
-     *
-     * @param $valueAsArray
-     *
-     * @return mixed
-     */
-    private static function parseValue(array $valueAsArray)
-    {
-        return (count($valueAsArray) > 1)
-            ? $valueAsArray
-            : reset($valueAsArray);
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -59,21 +44,33 @@ class AddDatabaseConfigCommand extends Command
             $newConfig->name = $name;
             $newConfig->value = data_set($attributes, $key, $value);
             $newConfig->save();
-
-            $this->info("New config for {$name} saved successfully.");
         } else {
             $currentConfig = $config->value;
             data_set($currentConfig, $key, $value);
 
             $config->value = $currentConfig;
             $config->save();
-
-            $this->info("Config for {$name} updated successfully.");
         }
 
         $this->invalidateCache();
+        $this->info("Config for [{$name}.{$key}] with value [" . implode(',', (array)$value) . "] added successfully");
 
         return 0;
+    }
+
+    /**
+     * Allows arrays to be set as config values. But if there is only
+     * one item in the array, it returns the value as a primitive.
+     *
+     * @param $valueAsArray
+     *
+     * @return mixed
+     */
+    private static function parseValue(array $valueAsArray)
+    {
+        return (count($valueAsArray) > 1)
+            ? $valueAsArray
+            : reset($valueAsArray);
     }
 
     /**

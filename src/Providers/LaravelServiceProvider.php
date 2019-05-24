@@ -14,10 +14,10 @@ class LaravelServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/database-config.php' => config_path('database-config.php'),
+            __DIR__ . '/../../config/database-config.php' => config_path('database-config.php'),
         ], 'config');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -34,6 +34,6 @@ class LaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/database-config.php', 'database-config');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/database-config.php', 'database-config');
     }
 }
