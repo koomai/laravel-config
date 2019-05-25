@@ -1,6 +1,6 @@
 # Laravel Config
 
-##### For Laravel 5.7+
+##### For Laravel 5.8
 
 Manage your application configuration in your database.
 
