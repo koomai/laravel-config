@@ -42,7 +42,7 @@ class DeleteDatabaseConfigCommandTest extends TestCase
      */
     public function shouldDisplayErrorMessageIfNoConfigFound()
     {
-        $this->artisan('config:delete random key')
+        $this->artisan('config:delete', ['name' => 'random', 'key' => 'foo'])
             ->expectsOutput('No configuration for [random] found')
             ->assertExitCode(1);
     }
