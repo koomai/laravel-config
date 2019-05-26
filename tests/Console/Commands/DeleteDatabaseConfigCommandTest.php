@@ -40,16 +40,6 @@ class DeleteDatabaseConfigCommandTest extends TestCase
     /**
      * @test
      */
-    public function shouldDisplayErrorMessageIfNoConfigFound()
-    {
-        $this->artisan('config:delete random key')
-            ->expectsOutput('No configuration for [random] found')
-            ->assertExitCode(1);
-    }
-
-    /**
-     * @test
-     */
     public function shouldDeleteKeyValuePair()
     {
         $originalConfig = [
