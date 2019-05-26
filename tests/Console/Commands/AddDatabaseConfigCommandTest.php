@@ -48,14 +48,7 @@ class AddDatabaseConfigCommandTest extends TestCase
             'value' => 'bar',
         ];
 
-        $this->artisan(
-            'config:add',
-            [
-                'name' => $data['name'],
-                'key' => $data['key'],
-                'value' => [$data['value']],
-            ]
-        );
+        $this->artisan("config:add " . implode(" ", $data));
 
         $this->assertDatabaseHas(
             $this->table,
@@ -77,14 +70,7 @@ class AddDatabaseConfigCommandTest extends TestCase
             'value' => ['bar', 'baz'],
         ];
 
-        $this->artisan(
-            'config:add',
-            [
-                'name' => $data['name'],
-                'key' => $data['key'],
-                'value' => $data['value'],
-            ]
-        );
+        $this->artisan("config:add " . $data['name'] . ' ' . $data['key'] . ' ' . $data['value'][0] . ' ' . $data['value'][1]);
 
         $this->assertDatabaseHas(
             $this->table,
@@ -119,17 +105,10 @@ class AddDatabaseConfigCommandTest extends TestCase
         $data = [
             'name' => 'test',
             'key' => 'foo',
-            'value' => 'new value',
+            'value' => 'replacement',
         ];
 
-        $this->artisan(
-            'config:add',
-            [
-                'name' => $data['name'],
-                'key' => $data['key'],
-                'value' => [$data['value']],
-            ]
-        );
+        $this->artisan("config:add " . implode(" ", $data));
 
         // Assert original value does not exist
         $this->assertDatabaseMissing(
@@ -174,17 +153,10 @@ class AddDatabaseConfigCommandTest extends TestCase
         $data = [
             'name' => 'test',
             'key' => 'bar',
-            'value' => 'new value',
+            'value' => 'replacement',
         ];
 
-        $this->artisan(
-            'config:add',
-            [
-                'name' => $data['name'],
-                'key' => $data['key'],
-                'value' => [$data['value']],
-            ]
-        );
+        $this->artisan("config:add " . implode(" ", $data));
 
         // Assert both key/values are set
         $this->assertDatabaseHas(
