@@ -79,7 +79,7 @@ class AddDatabaseConfigCommand extends Command
      *
      * @return void
      */
-    private function invalidateCache(): void
+    private function invalidateCache()
     {
         app('cache')->forget(config('database-config.cache_key'));
 

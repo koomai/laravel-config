@@ -9,7 +9,7 @@ class TestCase extends OrchestraTestCase
     /**
      * Setup the test environment.
      */
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
 
