@@ -1,7 +1,5 @@
 # Laravel Config
 
-##### For Laravel 5.8
-
 Manage your application configuration in your database.
 
 Laravel Config allows you to override or add to your application configuration in `/config` without redeploying code.
@@ -10,11 +8,18 @@ You can also use it as a separate custom configuration manager if you choose not
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via composer. Select the appropriate version based on the table below.
 
 ```bash
 composer require koomai/laravel-config
 ```
+
+| Laravel  | This package |
+| ------------- | ------------- |
+| <=5.6  | ^1.0  |
+| 5.7  | ^2.0  |
+| 5.8  | ^3.0  |
+
 
 ## Usage
 
