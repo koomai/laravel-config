@@ -1,5 +1,10 @@
 # Laravel Config
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/koomai/laravel-config.svg?style=flat-square)](https://packagist.org/packages/koomai/laravel-config)
+[![Build Status](https://img.shields.io/travis/koomai/laravel-config/master.svg?style=flat-square)](https://travis-ci.org/koomai/laravel-config)
+[![Quality Score](https://img.shields.io/scrutinizer/g/koomai/laravel-config.svg?style=flat-square)](https://scrutinizer-ci.com/g/koomai/laravel-config)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/koomai/laravel-config/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/koomai/laravel-config)
+
 Manage your application configuration in your database.
 
 Laravel Config allows you to override or add to your application configuration in `/config` without redeploying code.
