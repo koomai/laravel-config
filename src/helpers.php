@@ -2,7 +2,7 @@
 
 if (! function_exists('array_merge_recursive_distinct')) {
     /**
-     * Recursively merge two config arrays - retain distinct values and overwrite existing values
+     * Recursively merge two config arrays - retain distinct values and overwrite existing values.
      * @see http://docs.php.net/manual/da/function.array-merge-recursive.php#92195
      * @param array $array1
      * @param array $array2

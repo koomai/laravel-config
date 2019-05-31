@@ -2,9 +2,9 @@
 
 namespace Koomai\LaravelConfig\Console\Commands;
 
-use Koomai\LaravelConfig\DatabaseConfig;
-use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
+use Illuminate\Console\Command;
+use Koomai\LaravelConfig\DatabaseConfig;
 
 class DeleteDatabaseConfigCommand extends Command
 {
@@ -36,7 +36,7 @@ class DeleteDatabaseConfigCommand extends Command
         $key = $this->argument('key');
         $config = DatabaseConfig::find($name);
 
-        if (!$config) {
+        if (! $config) {
             $this->error("No configuration for [{$name}] found");
 
             return 1;
@@ -63,7 +63,7 @@ class DeleteDatabaseConfigCommand extends Command
 
     /**
      * Flushes cache for database config
-     * If --reset-cache option is passed, it will also re-cache app config
+     * If --reset-cache option is passed, it will also re-cache app config.
      *
      * @return void
      */
@@ -76,4 +76,3 @@ class DeleteDatabaseConfigCommand extends Command
         }
     }
 }
-

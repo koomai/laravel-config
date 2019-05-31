@@ -13,7 +13,7 @@ class TestCase extends OrchestraTestCase
     {
         parent::setUp();
 
-        $this->withFactories(__DIR__ . '/factories');
+        $this->withFactories(__DIR__.'/factories');
 
         $this->artisan('migrate', ['--database' => 'testing'])->run();
     }

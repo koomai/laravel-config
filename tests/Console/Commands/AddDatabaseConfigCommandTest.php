@@ -3,8 +3,8 @@
 namespace Koomai\LaravelConfig\Tests\Console\Commands;
 
 use Koomai\LaravelConfig\DatabaseConfig;
-use Koomai\LaravelConfig\Providers\LaravelServiceProvider;
 use Koomai\LaravelConfig\Tests\TestCase;
+use Koomai\LaravelConfig\Providers\LaravelServiceProvider;
 
 class AddDatabaseConfigCommandTest extends TestCase
 {
@@ -48,7 +48,7 @@ class AddDatabaseConfigCommandTest extends TestCase
             'value' => 'bar',
         ];
 
-        $this->artisan("config:add " . implode(" ", $data));
+        $this->artisan('config:add '.implode(' ', $data));
 
         $this->assertDatabaseHas(
             $this->table,
@@ -70,7 +70,7 @@ class AddDatabaseConfigCommandTest extends TestCase
             'value' => ['bar', 'baz'],
         ];
 
-        $this->artisan("config:add " . $data['name'] . ' ' . $data['key'] . ' ' . $data['value'][0] . ' ' . $data['value'][1]);
+        $this->artisan('config:add '.$data['name'].' '.$data['key'].' '.$data['value'][0].' '.$data['value'][1]);
 
         $this->assertDatabaseHas(
             $this->table,
@@ -108,7 +108,7 @@ class AddDatabaseConfigCommandTest extends TestCase
             'value' => 'replacement',
         ];
 
-        $this->artisan("config:add " . implode(" ", $data));
+        $this->artisan('config:add '.implode(' ', $data));
 
         // Assert original value does not exist
         $this->assertDatabaseMissing(
@@ -156,7 +156,7 @@ class AddDatabaseConfigCommandTest extends TestCase
             'value' => 'replacement',
         ];
 
-        $this->artisan("config:add " . implode(" ", $data));
+        $this->artisan('config:add '.implode(' ', $data));
 
         // Assert both key/values are set
         $this->assertDatabaseHas(
@@ -166,7 +166,7 @@ class AddDatabaseConfigCommandTest extends TestCase
                 'value' => json_encode(
                     [
                         'foo' => 'original',
-                        $data['key'] => $data['value']
+                        $data['key'] => $data['value'],
                     ]
                 ),
             ]

@@ -1,7 +1,6 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-
 use Koomai\LaravelConfig\DatabaseConfig;
 
 $factory->define(

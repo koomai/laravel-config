@@ -2,8 +2,8 @@
 
 namespace Koomai\LaravelConfig\Console\Commands;
 
-use Koomai\LaravelConfig\DatabaseConfig;
 use Illuminate\Console\Command;
+use Koomai\LaravelConfig\DatabaseConfig;
 
 class AddDatabaseConfigCommand extends Command
 {
@@ -38,7 +38,7 @@ class AddDatabaseConfigCommand extends Command
 
         $config = DatabaseConfig::find($name);
 
-        if (!$config) {
+        if (! $config) {
             $attributes = [];
             $newConfig = new DatabaseConfig;
             $newConfig->name = $name;
@@ -53,7 +53,7 @@ class AddDatabaseConfigCommand extends Command
         }
 
         $this->invalidateCache();
-        $this->info("Config for [{$name}.{$key}] with value [" . implode(',', (array)$value) . "] added successfully");
+        $this->info("Config for [{$name}.{$key}] with value [".implode(',', (array) $value).'] added successfully');
 
         return 0;
     }
@@ -75,7 +75,7 @@ class AddDatabaseConfigCommand extends Command
 
     /**
      * Flushes cache for database config
-     * If --reset-cache option is passed, it will also re-cache app config
+     * If --reset-cache option is passed, it will also re-cache app config.
      *
      * @return void
      */
@@ -88,4 +88,3 @@ class AddDatabaseConfigCommand extends Command
         }
     }
 }
-
