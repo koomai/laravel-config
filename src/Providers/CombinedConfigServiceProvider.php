@@ -2,9 +2,9 @@
 
 namespace Koomai\LaravelConfig\Providers;
 
-use Koomai\LaravelConfig\DatabaseConfig;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Config\Repository;
+use Illuminate\Support\ServiceProvider;
+use Koomai\LaravelConfig\DatabaseConfig;
 
 class CombinedConfigServiceProvider extends ServiceProvider
 {
@@ -23,7 +23,7 @@ class CombinedConfigServiceProvider extends ServiceProvider
             $loadedFromCache = true;
         }
 
-        if (!isset($loadedFromCache)) {
+        if (! isset($loadedFromCache)) {
             // Load database config
             $databaseConfig = $this->app['cache']->rememberForever(
                 $this->app['config']->get('database-config.cache_key'),

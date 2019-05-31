@@ -3,8 +3,8 @@
 namespace Koomai\LaravelConfig\Tests\Console\Commands;
 
 use Koomai\LaravelConfig\DatabaseConfig;
-use Koomai\LaravelConfig\Providers\LaravelServiceProvider;
 use Koomai\LaravelConfig\Tests\TestCase;
+use Koomai\LaravelConfig\Providers\LaravelServiceProvider;
 
 class DeleteDatabaseConfigCommandTest extends TestCase
 {
@@ -71,7 +71,7 @@ class DeleteDatabaseConfigCommandTest extends TestCase
         );
 
         // Delete key bar
-        $this->artisan('config:delete ' . $originalConfig['name'] . ' bar');
+        $this->artisan('config:delete '.$originalConfig['name'].' bar');
 
         // Original config should not exist
         $this->assertDatabaseMissing(
@@ -120,8 +120,7 @@ class DeleteDatabaseConfigCommandTest extends TestCase
         );
 
         // Delete name by passing empty string as key
-        $this->artisan('config:delete ' . $originalConfig['name'] . " ''");
-
+        $this->artisan('config:delete '.$originalConfig['name']." ''");
 
         // Original config should not exist
         $this->assertDatabaseMissing(
