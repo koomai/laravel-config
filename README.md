@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/koomai/laravel-config.svg?style=flat-square)](https://packagist.org/packages/koomai/laravel-config)
 [![Build Status](https://img.shields.io/travis/koomai/laravel-config/master.svg?style=flat-square)](https://travis-ci.org/koomai/laravel-config)
 [![Quality Score](https://img.shields.io/scrutinizer/g/koomai/laravel-config.svg?style=flat-square)](https://scrutinizer-ci.com/g/koomai/laravel-config)
+[![StyleCI](https://github.styleci.io/repos/185892143/shield?branch=master)](https://github.styleci.io/repos/185892143)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/koomai/laravel-config/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/koomai/laravel-config)
 
 Manage your application configuration in your database.
