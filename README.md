@@ -1,4 +1,4 @@
-# Laravel Config
+# Laravel Dynamic Config
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/koomai/laravel-config.svg?style=flat-square)](https://packagist.org/packages/koomai/laravel-config)
 [![Build Status](https://img.shields.io/travis/koomai/laravel-config/master.svg?style=flat-square)](https://travis-ci.org/koomai/laravel-config)
@@ -8,7 +8,7 @@
 
 Manage your application configuration in your database.
 
-Laravel Config allows you to override or add to your application configuration in `/config` without redeploying code.
+Dynamic Config allows you to override or add to your application configuration in `/config` without redeploying code.
 
 You can also use it as a separate custom configuration manager if you choose not to combine it with Laravel's config.
 
@@ -31,8 +31,11 @@ composer require koomai/laravel-config
 
 ### Register Service Provider
 
-If you want to use this package to override Laravel's config, you will have to manually register 
-`CombinedConfigServiceProvider` in the `providers` array in `config/app.php`. 
+The core service provider is already registered via package discovery.
+
+If you want to combine/override Laravel's config values, you will have to manually register `CombinedConfigServiceProvider` in the `providers` array in `config/app.php`.
+
+*Note*: It is highly recommended that you cache your config (using `artisan config:cache`) if you choose to do the above.
 
 ### Add config
 
@@ -42,17 +45,25 @@ php artisan config:add mail username johndoe
 
 // Nested key/value for mail configuration
 php artisan config:add mail from.address johndoe@example.com
+
+// Refresh cache by passing the --reset-cache flag
+php artisan config:add mail username johndoe --reset-cache
 ```
 
 ### Delete config
 
 ```bash
+// Delete a key for mail configuration
 php artisan config:delete mail username
 
+// Delete a nested key for mail configuration
 php artisan config:delete mail from.address
 
 // Pass an empty string to delete all configuration for mail in the database
 php artisan config:delete mail ''
+
+// Refresh cache by passing the --reset-cache flag
+php artisan config:delete mail username
 ```
 
 ### Testing

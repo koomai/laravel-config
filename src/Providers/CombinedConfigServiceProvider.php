@@ -16,14 +16,7 @@ class CombinedConfigServiceProvider extends ServiceProvider
         // If app config is already cached, simply use the cached config key/values.
         // You will have to clear config cache to merge new database config
         // values with application config and cache them again.
-        $items = [];
-        if (file_exists($cached = $this->app->getCachedConfigPath())) {
-            $items = require $cached;
-
-            $loadedFromCache = true;
-        }
-
-        if (! isset($loadedFromCache)) {
+        if (!file_exists($this->app->getCachedConfigPath())) {
             // Load database config
             $databaseConfig = $this->app['cache']->rememberForever(
                 $this->app['config']->get('database-config.cache_key'),
@@ -38,11 +31,10 @@ class CombinedConfigServiceProvider extends ServiceProvider
 
             $config = $this->app['config']->all();
             $items = array_merge_recursive_distinct($config, $databaseConfig);
+            $repository = new Repository($items);
+
+            // Register custom instance in container
+            $this->app->instance('config', $repository);
         }
-
-        $repository = new Repository($items);
-
-        // Register custom instance in container
-        $this->app->instance('config', $repository);
     }
 }
